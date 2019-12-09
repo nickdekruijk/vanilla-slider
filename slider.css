@@ -1,9 +1,7 @@
 .slider {width:100%;margin-top:40px;height:392px;position:relative}
-.slider-logo {position:relative;background-color:$white;padding-right:66px}
-.slider-logo IMG {height:392px;display:block;position:relative}
 .slider-container {position:relative;overflow:hidden;background:red}
-.slider-container:before {content:'';transform:skewX(-10deg) translateX(-100%);background-color:$white;width:220px;height:100%;position:absolute;z-index:100;transform-origin:bottom right}
+.slider-container:before {content:'';transform:skewX(-10deg) translateX(-100%);width:220px;height:100%;position:absolute;z-index:100;transform-origin:bottom right}
 .slide {position:absolute;width:100%;height:100%;background-position:center center;background-size:cover;opacity:0;transition:opacity 0s, transform 0s;transition-delay:1s;z-index:1}
 .slide.active {opacity:1;z-index:2;transition-delay:0s;transition:opacity 1s, transform 1s}
-.slide H2 {font-family:$hudson;color:$white;position:absolute;bottom:0;left:0;right:0;font-size:2rem;padding:0 10px 15px 30px}
+.slide H2 {position:absolute;bottom:0;left:0;right:0;font-size:2rem;padding:0 10px 15px 30px}
 .slide .button {position:absolute;right:15px;bottom:15px}
