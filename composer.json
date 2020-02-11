@@ -1,0 +1,16 @@
+{
+    "name": "nickdekruijk/vanilla-slider",
+    "description": "A vanilla javascript slider",
+    "license": "MIT",
+	"keywords": [
+		"slider",
+		"javascript"
+	],
+    "authors": [
+        {
+            "name": "Nick de Kruijk",
+            "email": "git@nickdekruijk.nl"
+        }
+    ],
+    "minimum-stability": "dev"
+}
