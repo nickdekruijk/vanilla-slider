@@ -86,7 +86,7 @@ window.Slider = function(options) {
         this.slideGo(currentSlider + 1);
     }
 
-    if (slides.length) {
+    if (slides.length && this.option.interval > 0) {
         var interval = setInterval(function() {
             _this.slideNext();
         }, this.option.interval);
