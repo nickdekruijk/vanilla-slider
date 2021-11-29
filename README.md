@@ -16,6 +16,9 @@ Add some slider elements to your html for example
     <div class="slide">
         <img src="image3.jpg" alt="Third image">
     </div>
+    <span class="slider-prev"></span>
+    <span class="slider-next"></span>
+    <span class="slider-dots"></span>
 </section>
 ```
 Include the main script
@@ -38,4 +41,18 @@ And finaly apply some css, for example
 .slider .slide H2 {position:absolute;z-index:1;color:$white;bottom:0;font-size:3vw;padding:1vw}
 .slider .slide {opacity:0;transition:opacity 0s, transform 0s;transition-delay:1s;z-index:1}
 .slider .slide.active {opacity:1;z-index:2;transition-delay:0s;transition:opacity 1s, transform 1s}
+.slider:hover .slider-prev,
+.slider:hover .slider-next {position:absolute;top:50%;display:block;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:100%;background-color:rgba(0,0,0,0.2);cursor:pointer}
+.slider:hover .slider-prev:hover,
+.slider:hover .slider-next:hover {background-color:rgba(0,0,0,0.4)}
+.slider .slider-prev::before,
+.slider .slider-next::before {content:'';width:14px;height:14px;display:block;position:absolute;border-top:3px solid #fff;border-right:3px solid #fff;top:50%;left:50%}
+.slider .slider-prev {left:10px}
+.slider .slider-next {right:10px}
+.slider .slider-prev::before {transform:translate(-6px,-50%) rotate(-135deg)}
+.slider .slider-next::before {transform:translate(-12px,-50%) rotate(45deg)}
+.slider .slider-dots {position:absolute;bottom:0;right:0;z-index:10;line-height:1}
+.slider .slider-dot {display:inline-block;width:11px;height:11px;margin:0 5px;border:1px solid #ccc;border-radius:100%;background-color:#ccc;cursor:pointer;color:transparent}
+.slider .slider-dot.active {background-color:#fff}
+
 ```
