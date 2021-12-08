@@ -148,8 +148,8 @@ window.Slider = function(options) {
 
         // Hide arrow keys on touch devices
         if (!_this.option.touchkeys) {
-            slider.querySelector(_this.option.buttonPreviousSelector).style.display = 'none';
-            slider.querySelector(_this.option.buttonNextSelector).style.display = 'none';
+            if (e = slider.querySelector(_this.option.buttonPreviousSelector)) e.style.display = 'none';
+            if (e = slider.querySelector(_this.option.buttonNextSelector)) e.style.display = 'none';
         }
     }
 }
