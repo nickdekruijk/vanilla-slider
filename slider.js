@@ -11,7 +11,7 @@ var slider = new Slider({
 
 */
 
-window.Slider = function(options) {
+window.Slider = function (options) {
 
     // Default settings
     this.option = {
@@ -49,7 +49,7 @@ window.Slider = function(options) {
         for (var i = 1; i <= slides.length; i++) {
             var dot = document.createElement('SPAN');
             dot.setAttribute('data-slide', i);
-            dot.addEventListener('click', function(e) {
+            dot.addEventListener('click', function (e) {
                 clearInterval(interval);
                 _this.slideGo(this.getAttribute('data-slide'));
             });
@@ -60,7 +60,7 @@ window.Slider = function(options) {
     }
     var dots = slider.querySelectorAll(_this.option.dotSelector);
 
-    this.slideGo = function(n) {
+    this.slideGo = function (n) {
         if (currentSlider) {
             slides[currentSlider - 1].classList.remove(_this.option.activeClass);
             if (dots.length) {
@@ -82,34 +82,34 @@ window.Slider = function(options) {
         }
     }
 
-    this.slidePrevious = function() {
+    this.slidePrevious = function () {
         this.slideGo(currentSlider - 1);
     }
-    this.slideNext = function() {
+    this.slideNext = function () {
         this.slideGo(currentSlider + 1);
     }
 
     if (slides.length && this.option.interval > 0) {
-        var interval = setInterval(function() {
+        var interval = setInterval(function () {
             _this.slideNext();
         }, this.option.interval);
     }
 
     this.slideGo(1);
     if (_this.option.buttonPreviousSelector && slider.querySelector(_this.option.buttonPreviousSelector)) {
-        slider.querySelector(_this.option.buttonPreviousSelector).addEventListener('click', function() {
+        slider.querySelector(_this.option.buttonPreviousSelector).addEventListener('click', function () {
             clearInterval(interval);
             _this.slidePrevious();
         });
     }
     if (_this.option.buttonNextSelector && slider.querySelector(_this.option.buttonNextSelector)) {
-        slider.querySelector(_this.option.buttonNextSelector).addEventListener('click', function() {
+        slider.querySelector(_this.option.buttonNextSelector).addEventListener('click', function () {
             clearInterval(interval);
             _this.slideNext();
         });
     }
     if (_this.option.keyboardEnabled) {
-        window.addEventListener('keydown', function(e) {
+        window.addEventListener('keydown', function (e) {
             var event = window.event ? window.event : e;
             if (event.keyCode == 37) {
                 clearInterval(interval);
@@ -124,11 +124,11 @@ window.Slider = function(options) {
 
     if (_this.option.touchwipe && 'ontouchstart' in window) {
         // Activate touch gestures
-        slider.addEventListener('touchstart', function(evt) {
+        slider.addEventListener('touchstart', function (evt) {
             xDown = evt.touches[0].clientX;
             console.log(xDown);
         }, false);
-        slider.addEventListener('touchmove', function(evt) {
+        slider.addEventListener('touchmove', function (evt) {
             if (!xDown) {
                 return;
             }
