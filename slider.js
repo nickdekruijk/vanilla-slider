@@ -49,6 +49,8 @@ window.Slider = function (options) {
         for (var i = 1; i <= slides.length; i++) {
             var dot = document.createElement('SPAN');
             dot.setAttribute('data-slide', i);
+            dot.setAttribute('aria-label', slides[i - 1].getAttribute('aria-label') ?? 'Slide ' + i);
+            dot.setAttribute('aria-controls', slides[i - 1].getAttribute('id'));
             dot.addEventListener('click', function (e) {
                 clearInterval(interval);
                 _this.slideGo(this.getAttribute('data-slide'));
@@ -65,6 +67,7 @@ window.Slider = function (options) {
             slides[currentSlider - 1].classList.remove(_this.option.activeClass);
             if (dots.length) {
                 dots[currentSlider - 1].classList.remove(_this.option.activeClass);
+                dots[currentSlider - 1].setAttribute('aria-selected', 'false');
             }
         }
 
@@ -79,6 +82,7 @@ window.Slider = function (options) {
         slides[currentSlider - 1].classList.add(_this.option.activeClass);
         if (dots.length) {
             dots[currentSlider - 1].classList.add(_this.option.activeClass);
+            dots[currentSlider - 1].setAttribute('aria-selected', 'true');
         }
     }
 
@@ -97,12 +101,14 @@ window.Slider = function (options) {
 
     this.slideGo(1);
     if (_this.option.buttonPreviousSelector && slider.querySelector(_this.option.buttonPreviousSelector)) {
+        slider.querySelector(_this.option.buttonPreviousSelector).setAttribute('aria-controls', slider.getAttribute('id'));
         slider.querySelector(_this.option.buttonPreviousSelector).addEventListener('click', function () {
             clearInterval(interval);
             _this.slidePrevious();
         });
     }
     if (_this.option.buttonNextSelector && slider.querySelector(_this.option.buttonNextSelector)) {
+        slider.querySelector(_this.option.buttonNextSelector).setAttribute('aria-controls', slider.getAttribute('id'));
         slider.querySelector(_this.option.buttonNextSelector).addEventListener('click', function () {
             clearInterval(interval);
             _this.slideNext();

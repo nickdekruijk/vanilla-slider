@@ -4,21 +4,21 @@ A simple slider script with css transitions for effects. It works by applying an
 ## Usage
 Add some slider elements to your html for example
 ```html
-<section class="slider">
-    <div class="slide">
+<section class="slider" aria-label="Slider" id="slider">
+    <div class="slide"role="tabpanel" aria-roledescription="slide"  id="slide-1" aria-label="Slide 1">
         <img src="image1.jpg" alt="First image">
         <h2>An image!</h2>
     </div>
-    <div class="slide">
+    <div class="slide" role="tabpanel" aria-roledescription="slide" id="slide-2" aria-label="Slide 2">
         <img src="image2.jpg" alt="Second image">
         <h2>Another image</h2>
     </div>
-    <div class="slide">
+    <div class="slide" role="tabpanel" aria-roledescription="slide" id="slide-3" aria-label="Slide 3">
         <img src="image3.jpg" alt="Third image">
     </div>
-    <span class="slider-prev"></span>
-    <span class="slider-next"></span>
-    <span class="slider-dots"></span>
+    <span class="slider-prev" aria-label="Previous slide">></span>
+    <span class="slider-next" aria-label="Next slide">></span>
+    <span class="slider-dots" role="tablist" aria-label="Slides"></span>
 </section>
 ```
 Include the main script
